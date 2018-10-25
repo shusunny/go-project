@@ -1,2 +1,3 @@
 # Go-Practice
-This is golang practice repo, I will upload my practice code here.
+This is my golang practice repo, I will upload my practice code here.
+
