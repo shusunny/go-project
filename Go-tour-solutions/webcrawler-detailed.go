@@ -1,3 +1,5 @@
+// Copied from : https://github.com/golang/tour/blob/master/solutions/webcrawler.go
+
 package main
 
 import (

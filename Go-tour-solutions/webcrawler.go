@@ -16,6 +16,7 @@ var wg sync.WaitGroup
 
 // TODO: 并行的抓取 URL。
 // TODO: 不重复抓取页面。
+// 这里用了辅助函数_crawl来完成上面的任务，并进行主要的抓取工作
 func _crawl(url string, depth int, fetcher Fetcher, Results chan string, wg *sync.WaitGroup) {
 	defer wg.Done()
 	if depth <= 0 {
