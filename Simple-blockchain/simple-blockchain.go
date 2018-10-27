@@ -75,7 +75,7 @@ func (bc *Blockchain) AddBlock(data BookCheckout) {
 	prevBlock := bc.blocks[len(bc.blocks)-1]
 	// create new block
 	block := CreateBlock(prevBlock, data)
-	//  validate integrity of blocks
+	// validate integrity of blocks
 	if validBlock(block, prevBlock) {
 		bc.blocks = append(bc.blocks, block)
 	}
@@ -153,8 +153,8 @@ func newBook(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("could not create new Book"))
 		return
 	}
-	// We'll create an ID, concatenating the isdb and publish date
-	// This isn't an efficient way but serves for this tutorial
+	// We'll create an ID, concatenating the ISDBand publish date
+	// This isn't an efficient way but it serves for this tutorial
 	h := md5.New()
 	io.WriteString(h, book.ISBN+book.PublishDate)
 	book.ID = fmt.Sprintf("%x", h.Sum(nil))
@@ -183,7 +183,6 @@ func main() {
 
 	// dump the state of the Blockchain to the console
 	go func() {
-		//for {
 		for _, block := range BlockChain.blocks {
 			fmt.Printf("Prev. hash: %x\n", block.PrevHash)
 			bytes, _ := json.MarshalIndent(block.Data, "", " ")
