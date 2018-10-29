@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"strings"
 )
 
 func main() {
@@ -16,5 +17,12 @@ func main() {
 		// freebsd, openbsd,
 		// plan9, windows...
 		fmt.Printf("%s.", os)
+
+	xs := strings.Split("Who is my faverate person, I don't know, the only thing I know is I don't like anyone")
+	for
 	}
+}
+
+func john(s []string) string{
+	return strings.Join(s)
 }
