@@ -12,14 +12,14 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(w http.ResponseWriter, r *http.Request){
+func index(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "welcome to index page")
 }
 
-func dog(w http.ResponseWriter, r *http.Request){
+func dog(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "you got the dog!")
 }
 
-func cat(w http.ResponseWriter, r *http.Request){
+func cat(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "you got the cat!")
 }

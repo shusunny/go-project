@@ -5,17 +5,16 @@ import (
 	"math"
 )
 
+const delta = 1e-9 // 创建一个极小的常数
+
 func Sqrt(x float64) float64 {
-	z := 1.0
-	temp := 0.0 // 临时变量，用来记录前一次z的值
-	for {
-		z = z - (z*z-x)/(2*z) // 计算出最新的z值
+	z := x
+	t := 0.0 // 临时变量，用来记录前一次z的值
+
+	// 用math库中的绝对值函数计算两次的差值，当值差距较大时进入计算循环。
+	for math.Abs(t-z) > delta {
+		t, z = z, z-(z*z-x)/(2*z)
 		fmt.Println(z)
-		if math.Abs(z-temp) < 0.000000000000001 {
-			break // 用math库中的绝对值使值停止改变（或改变非常小）的时候退出循环
-		} else {
-			temp = z // 改变仍较大时记录此时的z值
-		}
 	}
 	return z
 }
