@@ -1,12 +1,13 @@
 package controllers
 
 import (
-	"../models"
 	"encoding/json"
 	"fmt"
+	"net/http"
+
+	"../models"
 	"github.com/julienschmidt/httprouter"
 	"github.com/satori/go.uuid"
-	"net/http"
 )
 
 type UserController struct {
@@ -37,7 +38,8 @@ func (uc UserController) CreateUser(w http.ResponseWriter, r *http.Request, _ ht
 	u := models.User{}
 	json.NewDecoder(r.Body).Decode(&u)
 
-	// create ID
+	// create ID, uuid returns []bytes, I assign it to a value and covert to string.
+	// I can't do uuid.NewV4().String() for some reason I don't know
 	uid, _ := uuid.NewV4()
 	u.Id = uid.String()
 
